@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('gender', 30);
             $table->string('phone');
             $table->text('addres')->nullable();
-            $table->foreignId('car_id');
-
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

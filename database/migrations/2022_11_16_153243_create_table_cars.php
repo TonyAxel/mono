@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('color', 50);
             $table->string('number', 10);
             $table->integer('check')->default(0);
+
+            $table->foreignId('client_id');
+            $table->timestamps();
+
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 

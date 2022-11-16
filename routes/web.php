@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\ClientController;
 
 
 /*
@@ -17,14 +17,14 @@ use App\Http\Controllers\MainController;
 */
 
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::post('/client/create', [MainController::class, 'createClient'])->name('clientCreate');
-Route::post('/client/{id}/add/car', [MainController::class, 'addCar'])->name('addCar');
+Route::get('/', [ClientController::class, 'pageHome'])->name('home');
+Route::post('/client/create', [ClientController::class, 'createClient'])->name('clientCreate');
+Route::post('/client/{id}/add/car', [CarController::class, 'addCar'])->name('addCar');
 
 
-Route::resource('/clients', MainController::class)->names('clients');
+Route::resource('/clients', ClientController::class)->names('clients');
 
-Route::post('/clients/car', [HomeController::class, 'selectCar']);
-Route::post('/clients/car/check', [HomeController::class, 'checkCar']);
+Route::post('/clients/car', [CarController::class, 'selectCar']);
+Route::post('/clients/car/check', [CarController::class, 'checkCar']);
 
-Route::patch('/client/{id}/cars/update', [MainController::class, 'updateCar'])->name('updateCar');
+Route::patch('/client/{id}/cars/update', [ClientController::class, 'updateCar'])->name('updateCar');

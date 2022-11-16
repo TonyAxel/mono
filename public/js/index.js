@@ -18,7 +18,7 @@ if(document.getElementById('client') != null){
                 $('.container > #checkInput').remove();
                 data.forEach(element => {
                     let option =  $("<option class='options'></option>").text('Марка машины: ' + element.brand + ' Модель машины: ' +
-                    'Гос.номер машины: ' + element.number).val(element.id);
+                    element.model + ' Гос.номер машины: ' + element.number).val(element.id);
                     $('#selectCar').append(option);
                 });
             }

@@ -27,7 +27,7 @@
             
             <div class="mb-3">
                 <label for="typePhone" class="form-label">Телефон</label>
-                <input type="tel" class="form-control" id="typePhone" name="phone" maxlength="14" value="{{$item->phone}}" onkeyup="this.value = this.value.replace(/[^\d\+\(\)]/g,'');">
+                <input type="tel" class="form-control" id="typePhone" name="phone" maxlength="14" value="{{$item->phone}}" onkeyup="this.value = this.value.replace(/[^\d\+\(\)-]/g,'');">
             </div>
             <div class="mb-3">
                 <label class="form-label">Адрес</label>
@@ -73,7 +73,7 @@
                   </label>
               </div>
           </div>
-          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <button type="submit" class="btn btn-primary">Обновить</button>
         </form>
     </div>
     @endforeach
@@ -101,13 +101,13 @@
           </div>
           <div class="d-flex">
               <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"value="1">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1"value="1">
                   <label class="form-check-label" for="flexRadioDefault1">
                     На стоянке
                   </label>
               </div>
               <div class="form-check ms-3">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"value="0">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2"value="0">
                   <label class="form-check-label" for="flexRadioDefault2">
                     Не на стоянке
                   </label>
