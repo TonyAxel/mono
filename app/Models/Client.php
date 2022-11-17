@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class Client extends Model
@@ -40,7 +41,7 @@ class Client extends Model
     public function allClients(){
         $clientsCar = DB::table('clients')
             ->join('cars', 'client_id', '=', 'clients.id')
-            ->select('cars.id','fio', 'brand', 'model', 'number')
+            ->select('clients.id','cars.id as car_id','fio', 'brand', 'model', 'number')
             ->paginate(10);
         return $clientsCar;
     }
@@ -50,7 +51,8 @@ class Client extends Model
             'fio' => $request->fio,
             'gender' => $request->flexRadioDefault,
             'phone' => $request->phone,
-            'addres' => $request->addres
+            'addres' => $request->addres,
+            'created_at' => Date::now()
         ]);
         return $idClient;
     }
@@ -59,7 +61,7 @@ class Client extends Model
     {
         $carParking = DB::table('clients')
             ->join('cars', 'client_id', '=', 'clients.id')
-            ->select('cars.id','fio', 'brand', 'model', 'number')
+            ->select('clients.id','cars.id as car_id','fio', 'brand', 'model', 'number')
             ->where('check', '1')
             ->paginate(10);
 
@@ -107,6 +109,7 @@ class Client extends Model
             'gender' => $request->flexRadioDefault,
             'phone' => $request->phone,
             'addres' => $request->addres,
+            'updated_at'=> Date::now()
         ]);
     }
 }

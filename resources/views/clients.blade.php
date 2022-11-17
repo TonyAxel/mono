@@ -22,7 +22,7 @@
             <td>{{$item->brand . " " . $item->model}}</td>
             <td>{{$item->number}}</td>
             <td><form action="{{route('clients.edit', $item->id)}}" method="get"><button type="submit" class="btn btn-link"><img src="{{asset('/img/edit.png')}}" alt="" srcset=""></button></form></td>
-            <td><form action="{{route('clients.destroy', $item->id)}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-link"><img src="{{asset('/img/bin.png')}}" alt="" srcset=""></button></form></td>
+            <td><form action="{{route('clients.destroy', $item->car_id)}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-link"><img src="{{asset('/img/bin.png')}}" alt="" srcset=""></button></form></td>
           </tr>
           @endforeach
         </tbody>
