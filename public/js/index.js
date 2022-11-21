@@ -1,6 +1,53 @@
 'use strict';
 
-
+    
+    $('#countCar').click(function()
+    {
+        $('#btnCreate').remove();
+        $('.radioValue').remove();
+                let element = 
+                `
+                <div class="container card mt-5">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Марка автомобиля</label>
+                            <input class="form-control" name="brand[]">
+                        </div>
+                        <div class="mb-3">
+                            <label for="typePhone" class="form-label">Модель автомобиля</label>
+                            <input type="adress" class="form-control" name="model[]">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Цвет</label>
+                            <input class="form-control" name="color[]">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Гос. номер</label>
+                            <input class="form-control" name="number[]" id="number">
+                        </div>
+                        <div class="d-flex radioValue">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" checked value="1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    На стоянке
+                                </label>
+                            </div>
+                            <div class="form-check ms-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2"  value="0">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Не на стоянке
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" id="btnCreate">Создать</button>
+                        </div>
+                        </form>
+                    </div> 
+                </div>
+                `;
+                $('#formsAdd').append(element);
+    });
 
 if(document.getElementById('client') != null){
     var selOption = document.getElementById('client');
