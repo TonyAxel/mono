@@ -32,9 +32,9 @@ class Client extends Model
 
     public function createClientsValidate($values)
     {
-        $valid = Validator::make($values, $this->rulesCreate);
+        $valid = Validator::make($values, $this->rulesCreate); 
         if($valid->passes()) return true;
-        else return false;
+        else return $valid->errors();
     }
     
 

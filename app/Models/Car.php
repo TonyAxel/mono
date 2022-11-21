@@ -13,10 +13,10 @@ class Car extends Model
     use HasFactory;
 
     protected $rules = [
-        'brand' => 'required',
-        'model' => 'required',
-        'color' => 'required',
-        'number' => 'required|unique:cars',
+        'brand.*' => 'required|max:50',
+        'model.*' => 'required',
+        'color.*' => 'required',
+        'number.*' => 'required|unique:cars,number|distinct',
         'flexRadioDefault1' => 'required'
     ];
 
@@ -47,19 +47,23 @@ class Car extends Model
     {
         $valid = Validator::make($values, $this->rules);
         if($valid->passes()) return true;
-        else return false;
+        else return $valid->errors();
     }
 
     public function addCar(Request $request, $idClient)
     {
-        DB::table('cars')->insert([
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'color' => $request->color,
-            'number' => $request->number,
-            'check' => $request->flexRadioDefault1,
-            'client_id' => $idClient
-        ]);
+        $values = $request->all();
+        for($i = 0; $i < count($values['brand']); $i++)
+        {
+            DB::table('cars')->insert([
+                'brand' => $values['brand'][$i],
+                'model' => $values['model'][$i],
+                'color' => $values['color'][$i],
+                'number' => $values['number'][$i],
+                'check' => $values['flexRadioDefault1'][0],
+                'client_id' => $idClient
+            ]);
+        }
     }
 
     public function selectCar(Request $request){

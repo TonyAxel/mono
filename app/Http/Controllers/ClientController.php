@@ -44,16 +44,23 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function createClient(Request $request){
-
+        
         $modelClient = new Client();
         $modelCar = new Car();
-        if($modelClient->createClientsValidate($request->all()) && $modelCar->createCarValidate($request->all())) 
+        if($modelClient->createClientsValidate($request->all()) === true && $modelCar->createCarValidate($request->all()) === true) 
         {    
             $idClient = $modelClient->addClient($request);
             $modelCar->addCar($request, $idClient);
             return redirect()->back();
         }
-        return redirect()->back();
+        if($modelClient->createClientsValidate($request->all()) !== true){
+            $errors = $modelClient->createClientsValidate($request->all());
+            return redirect()->route('clients.create')->withErrors($errors)->withInput();
+        }
+        if($modelCar->createCarValidate($request->all()) !== true){
+            $errors = $modelCar->createCarValidate($request->all());
+            return redirect()->route('clients.create')->withErrors($errors)->withInput();
+        }
         
     }
 

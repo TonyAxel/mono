@@ -27,7 +27,7 @@
             
             <div class="mb-3">
                 <label for="typePhone" class="form-label">Телефон</label>
-                <input type="tel" class="form-control" id="typePhone" name="phone" maxlength="14" value="{{$item->phone}}" onkeyup="this.value = this.value.replace(/[^\d\+\(\)-]/g,'');">
+                <input type="tel" class="form-control" id="phone" name="phone" maxlength="14" value="{{$item->phone}}" onkeyup="this.value = this.value.replace(/[^\d\+\(\)-]/g,'');">
             </div>
             <div class="mb-3">
                 <label class="form-label">Адрес</label>
