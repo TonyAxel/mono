@@ -41,7 +41,7 @@
 
     <div class="container mt-3">
       <div>
-        <button type="button" id="countCar" class="btn btn-primary">Создать</button>
+        <button type="button" id="countCar" class="btn btn-primary">Добавить машину</button>
       </div>
     </div>
     
