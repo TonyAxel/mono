@@ -3,7 +3,7 @@
 @section('content')
     <div class="container card">
         @foreach ($client as $item)
-        <form class="card-body" method="POST" action="{{route('clients.update', $item->id)}}">
+        <form class="card-body" method="POST" action="{{route('clients.update', $item->id)}}" id="formsAdd">
             @csrf
             @method('PATCH')
             <div class="mb-3">
@@ -40,7 +40,7 @@
     
     @foreach ($cars as $item)
     <div class="container card mt-5">
-      <form class="card-body" method="post" action="{{route('updateCar', $item->id)}}">
+      <form class="card-body" method="post" action="{{route('updateCar', $item->id)}}" id="formsAdd">
           @csrf
           @method('PATCH')
           <div class="mb-3">
@@ -57,7 +57,7 @@
           </div>
           <div class="mb-3">
               <label class="form-label">Гос. номер</label>
-              <input class="form-control" name="number" value="{{$item->number}}">
+              <input class="form-control number" name="number" value="{{$item->number}}">
           </div>
           <div class="d-flex">
               <div class="form-check">
@@ -97,7 +97,7 @@
           </div>
           <div class="mb-3">
               <label class="form-label">Гос. номер</label>
-              <input class="form-control" name="number">
+              <input class="form-control number" name="number">
           </div>
           <div class="d-flex">
               <div class="form-check">

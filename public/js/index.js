@@ -1,4 +1,3 @@
-'use strict';
 
     
     $('#countCar').click(function()
@@ -23,7 +22,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Гос. номер</label>
-                            <input class="form-control" name="number[]" id="number">
+                            <input class="form-control number" name="number[]" id="number">
                         </div>
                         <div class="d-flex radioValue">
                             <div class="form-check">
@@ -47,6 +46,9 @@
                 </div>
                 `;
                 $('#formsAdd').append(element);
+
+                
+                
     });
 
 if(document.getElementById('client') != null){

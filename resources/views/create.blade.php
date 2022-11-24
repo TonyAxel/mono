@@ -71,7 +71,7 @@
           @enderror
           <div class="mb-3">
               <label class="form-label">Гос. номер</label>
-              <input class="form-control" name="number[]" id="number">
+              <input class="form-control number" name="number[]" id="number">
           </div>
           @error('number.0')
             <div class="alert alert-danger">The number field is required.</div>

@@ -45,11 +45,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <script src="{{asset('js/index.js')}}"></script>
     <script>
-      $(document).ready(function(){
-        $("#phone").mask("+7 (999)-999-99-99");
-        $.mask.definitions['c'] = '[A|В|Е|К|М|Н|О|Р|С|Т|У|Х]';
-        $("#number").mask("c 999 cc 999")
-      });
+      // $(document).ready(function(){
+      //   $("#phone").mask("+7 (999)-999-99-99");
+      //   $.mask.definitions['c'] = '[A|В|Е|К|М|Н|О|Р|С|Т|У|Х]';
+      //   $("#number").mask("c 999 cc 999")
+      // });
+
+    //   $(function() {
+    //     $(document).on('click', '#formsAdd', function(){ 
+    //       $("#phone").mask("+7 (999)-999-99-99");
+    //       $.mask.definitions['c'] = '[A|В|Е|К|М|Н|О|Р|С|Т|У|Х]';
+    //       $(".number").mask("c 999 cc 999")
+    //     });
+    // });
+
+    $(document).ready(function () {
+
+        $('.container').click(function () {
+            $("#phone").mask("+7 (999)-999-99-99");
+            $.mask.definitions['c'] = '[A|В|Е|К|М|Н|О|Р|С|Т|У|Х]';
+            $(".number").mask("c 999 cc 999")
+        });
+    });
     </script>
 </body>
 </html>
